@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Birthday Input Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;    
+            align-items: center;        
+            height: 100vh;             
+            margin: 0;
+            background: url('https://img.pikbest.com/templates/20240722/happy-birthday-background-with-pink-balloons_10678577.jpg!sw800') 
+                        no-repeat center center/cover;
+        }
+        .container {
+            width: 250px;
+           background: url('https://img.pikbest.com/templates/20240722/happy-birthday-background-with-pink-balloons_10678577.jpg!sw800') 
+                        no-repeat center center/cover;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 100px rgb(255, 255, 255);
+        }
+        button{
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+            padding: 8px;
+            text-align: center;
+            background: rgb(255, 0, 191);
+            border-radius: 10px;
+            text-decoration: none;
+            color: rgba(0,0,0);
+            font-weight: bold;
+            font-size: 15px;
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Birthday Input Form</h2>
+
+        <!-- HTML form to send data directly to Flask -->
+        <form action="/save_birthday" method="POST">
+
+            <label>Name:</label>
+            <input type="text" name="name" placeholder="Name" required><br><br>
+
+            <label>Date:</label>
+            <input type="date" name="date" style="margin-left:10px;" required><br><br>
+
+            <button type="submit" >Submit</button>
+            <button onclick="window.location.href='/index'">back to home</button>
+
+        </form>
+    </div>
+
+</body>
+</html>

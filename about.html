@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About birthday website</title>
+    <style>
+        /* Base styles for all screen sizes */
+        body {
+            /* Set a fluid max width for better readability on very large screens */
+            max-width: 1200px;
+            margin: 0 auto; /* Center the content */
+            padding: 10px; /* Add some padding around the edges */
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Added a background color for the body */
+        }
+        
+        div {
+            margin-bottom: 20px; /* Reduced margin bottom */
+            border-radius: 20px;
+            padding: 20px; /* Reduced padding */
+            background-color: #fffdfd;
+            margin: 20px 5%; /* Changed fixed margin to percentage for responsiveness */
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        img {
+            width: 100%; /* Changed from 80% to 100% of its parent container (div) */
+            max-width: 80%; /* Added max-width to prevent image from getting too large on desktop */
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            /* Removed fixed margin-left: 100px; and centered the image instead */
+            display: block;
+            margin: 20px auto; 
+        }
+        
+        h1 {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #7bee7f;
+            border-radius: 10px;
+        }
+
+        h2 {
+            padding: 5px;
+            background-color: #c5c1c1;
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        pre {
+            font-family: Arial;
+            font-size: 15px;
+            line-height: 20px;
+            width: 100%; /* Ensure it uses full width */
+            white-space: pre-wrap; /* Allows the content inside pre tag to wrap */
+        }
+
+        /* Media Query for smaller screens (mobiles) */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            div {
+                /* For very small screens, use a smaller horizontal margin */
+                margin: 15px 2%;
+                padding: 15px;
+            }
+
+            pre {
+                font-size: 14px;
+                line-height: 18px;
+            }
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>A webpage that tells about Birthday website</h1>
+
+    <p>This website is designed to help users keep track of birthdays of their friends and family. Users can add and delete birthday entries, and it shows the current day birthdays in the index. The goal of this website is to ensure that no important birthday is forgotten!</p>
+
+    <p>It contains three pages :</p>
+    <ul>
+        <li>Home page: where users can see the list of birthdays and contain other options.</li>
+        <li>Input page: which can take input of birthdays.</li>
+        <li>Login page: Every user must sign up or login to create an account.</li>
+    </ul>
+
+    <div>
+        <h2>HOME PAGE:</h2>
+        <pre >This page shows today's birthdays and allows users to perform options by clicking the buttons below:<br>
+          1.  birthday input
+          2.  view birthdays
+          3.  logout
+        </pre>
+        
+        <img src="birthday_index_page.png" alt="Home Page Screenshot" >
+    </div>
+
+    <div>
+        <h2>Birthday Input Page:</h2>
+        <pre>
+This page allows the user to add new birthday entries.
+The user can input the name and date of birth of their friends or family members. After submitting the form, the new birthday will be added to the database.
+The page looks like this:
+        </pre>
+        
+        <img src="birthday_input_page.png" alt="input page Screenshot" >
+    </div>
+    <div>
+        <h2>View Birthdays Page:</h2>
+        <pre>
+This page allows the user to see his  birthday entries.
+The user can see the name and date of birth of their friends or family members.He can also delete the birthdays by clicking on X mark at the corner of each row.
+The page looks like this:
+        </pre>
+        
+        <img src="view_birthday_page.png" alt="view_birthdays page Screenshot" >
+    </div>
+    <div>
+        <h2>Login Page:</h2>
+        <pre>
+This page allows the user to login or sign up to the website.
+The user can create an account by clicking on sign up.
+the user can go to his account by entering his username and password and clicking login.
+The page looks like this:
+        </pre>
+        
+        <img src="login page.png" alt="login Screenshot" >
+    </div>
+    <footer>
+        Birthdays website | created by T.Vishnu Siva Manohar | For More Info <a href="https://vishnusivamanohar.github.io/about-page/aboutme.html"><button type="submit">--></button></a>
+    </footer>
+</body>
+</html>

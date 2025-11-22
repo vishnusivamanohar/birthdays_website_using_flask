@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Birthday Input Form</title>
+    <style>
+        body {
+            /* 1. ENABLE FLEXBOX AND STACK VERTICALLY */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically for a single item, or aligns items along cross-axis */
+            flex-direction: column; /* Stack containers vertically */
+            
+            height: 100vh;
+            margin: 0;
+            background: url('https://png.pngtree.com/background/20250621/original/pngtree-minimalist-party-background-template-for-birthday-celebration-design-picture-image_16662519.jpg') 
+                        no-repeat center center/cover;
+        }
+
+        /* Base styles for both containers */
+        .container,
+        .up-container {
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 50px rgba(0, 255, 255, 1);
+            margin: 20px; /* Add margin between the stacked containers */
+        }
+
+        /* Specific container styles */
+        .up-container {
+            background: url('https://img.freepik.com/premium-photo/colorful-background-with-balloons-words-happy-birthday_1064589-191426.jpg?semt=ais_hybrid&w=740&q=80') 
+                        no-repeat center center/cover;
+            width: 500px; /* Adjusted width to match the new horizontal button container */
+            min-height: 150px; 
+            text-align: center;
+        }
+
+        /* RECTANGULAR CONTAINER FOR HORIZONTAL BUTTONS */
+        .container {
+            /* 2. ENABLE FLEXBOX FOR HORIZONTAL BUTTONS */
+            background: url('https://img.freepik.com/free-vector/bokeh-theme-wallpaper_23-2148467962.jpg?semt=ais_hybrid&w=740&q=80') 
+                        no-repeat center center/cover;
+            display: flex;
+            flex-direction: row; /* Lay out items horizontally */
+            justify-content: space-around; /* Distribute space around items */
+            align-items: center;
+            
+            /* Calculate width: 3 buttons (200px each) + 6 margins (10px each) + padding (40px*2) */
+            width: fit-content; /* Let the content determine the width */
+            padding: 40px;
+            height: auto; /* Remove fixed height */
+        }
+
+        button {
+            padding: 10px 20px; /* Adjusted padding */
+            margin: 0 10px; /* Spacing between side-by-side buttons */
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
+            width: 200px; /* Fixed width for button */
+            background-color: #ffffffd3; /* Example button color */
+            color: rgba(0, 0, 0);
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #ffc421;
+        }
+
+        h2 {
+            margin-bottom:20px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            max-width: 250px;
+            margin: 10px auto;
+        }
+
+        li {
+            font-size: 20px;
+      
+            margin-bottom: 20px;
+            box-shadow: 10px 10px 10px cyan;
+            color: #fcffff;
+        }
+    </style>
+</head>
+<body>
+    <audio id="bgMusic" autoplay loop>
+	  <source src="{{ url_for('static', filename='bg-music(plsent).mp3') }}" type="audio/mpeg">
+	</audio>
+    <div class="up-container">
+        <h2>Today's Birthdays:</h2>
+        {% if birthdays %}
+            <ul>
+                {% for birthday in birthdays %}
+                    <li>{{ birthday }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No birthdays today.</p>
+        {% endif %}
+    </div>
+
+    <div class="container">
+        <button onclick="window.location.href='/birthday_input'">Enter Birthday Input</button>
+        <button onclick="window.location.href='/view_birthday'">View Birthdays</button>
+        <button onclick="window.location.href='/logout'">Logout</button> 
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login / Sign Up</title>
+    <style>
+        /* --- General Layout --- */
+        body {
+            font-family: Arial;
+            background: #eef2f3;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            /* Flex center for the entire page content */
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+        }
+
+        /* Wrapper for all content (h1, ul, box) */
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            
+            /* Make wrapper wide enough for the H1 to look centered */
+            width: 1000px; 
+            max-width: 100%;
+            padding-bottom: 20px;
+            
+            /* Default alignment for blocks is center */
+            align-items: center; 
+        }
+        
+        /* --- Introductory Text Styles --- */
+        h1 {
+            /* 1. H1 is centered by centering its text across the full width */
+            width: 100%; 
+            text-align: center; 
+            margin: 0px;
+            color: #333;
+        }
+
+        ul {
+            list-style: disc;
+            padding-left: 50px; 
+            margin: 10;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            color: #555;
+            
+            /* 2. UL is LEFT-ALIGNED (relative to the box) by fixing its width */
+            width: 500px; /* Match the width of the login box */
+            /* align-items: center in parent wrapper already centers this UL block */
+            text-align: left; /* Ensure the text and bullets start on the left */
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+        
+        /* --- Login Box Styles --- */
+        .box {
+            /* 3. The box remains centered due to the parent's align-items: center */
+            width: 330px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        /* --- Input/Button Styles (Remaining styles are unchanged) --- */
+        .password-container {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 0;
+            background-color: white;
+        }
+
+        .password-container input {
+            flex-grow: 1;
+            width: auto;
+            padding: 10px;
+            margin: 0;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .password-container button {
+            width: auto;
+            padding: 0 10px;
+            height: 40px;
+            line-height: 40px;
+            margin-right: 5px;
+            font-size: 18px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #333;
+        }
+        
+        .box form > input[type="text"] {
+             width: 93%;
+             padding: 10px;
+             margin: 8px 0;
+             border-radius: 5px;
+             border: 1px solid #ccc;
+        }
+
+        .action-buttons {
+            display: flex; 
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        button {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-btn { background: #007bff; }
+        .signup-btn { background: #28a745; }
+    </style>
+</head>
+<body>
+    
+<div class="content-wrapper">
+    <h1>Hello, welcome to birthday website</h1>
+    <ul>
+        <li>if you are new to the page create an account by signing up</li>
+        <li>if you have already signed up then login</li>
+    </ul>
+    
+    <div class="box">
+        <h2>Login / Sign Up</h2>
+
+        <form action="/auth" method="POST">
+            <input type="text" name="name" placeholder="Enter Username(max-Length 12)" maxlength="12" required>
+            
+            <div class="password-container">
+                <input type="password" id="password" name="password" placeholder="Enter Password(max-Length 12)" maxlength="12" required>
+                <button type="button" onclick="togglePassword()">👁️</button>
+            </div>
+            <div class="action-buttons">
+                <button type="submit" name="action" value="login" class="login-btn">Login</button>
+                <button type="submit" name="action" value="signup" class="signup-btn">Sign Up</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function togglePassword() {
+    const pass = document.getElementById("password");
+    
+    if (pass.type === "password") {
+        pass.type = "text";
+    } else {
+        pass.type = "password";
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Birthdays</title>
+    <style>
+        /* --- General Body/Layout Styles --- */
+        body {
+            background: url('https://t3.ftcdn.net/jpg/07/72/96/94/360_F_772969466_lBptKHaQhcQOwzvkvJn6PCEiXN37eOv0.jpg') 
+                        no-repeat center center/cover;
+            font-family: Arial, sans-serif; /* Added sans-serif fallback */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            color: #333; /* Default text color */
+        }
+        
+        h2 {
+            text-align: center;
+            margin-top: 0; /* Remove top margin since body handles centering */
+            margin-bottom: 20px;
+            color: #b7f4ff; /* Darker cyan for heading */
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        /* --- Table Styles (Major Changes Here) --- */
+        table {
+            width: 600px; /* Set a fixed max width for better structure */
+            max-width: 90%;
+            margin: 20px auto;
+            border-radius: 12px; /* Smoother rounded corners */
+            overflow: hidden; /* Essential to clip cell content for border-radius */
+            
+            background: #ffffff; /* Pure white background */
+            box-shadow: 0 10px 30px rgba(0, 150, 190, 0.5); /* Enhanced cyan shadow */
+            border-collapse: separate; /* Use separate to enable border-radius on table */
+            border-spacing: 0;
+        }
+        
+        /* Table Header Row */
+        th {
+            background-color: #00bcd4; /* Primary bright cyan */
+            color: white; /* White text for high contrast */
+            font-weight: 600;
+            padding: 15px 12px; /* Increased vertical padding */
+            font-size: 17px;
+            text-transform: uppercase;
+        }
+
+        /* Table Data Cells */
+        td {
+            padding: 14px 12px;
+            text-align: center;
+            font-size: 16px;
+            border-bottom: 1px solid #e0f7fa; /* Light border separation */
+        }
+
+        /* Remove the bottom border from the last row */
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Hover effect for data rows */
+        tr:hover td {
+            background-color: #f4fdff; /* Very slight light blue on hover */
+        }
+
+        /* --- Action Column Specifics --- */
+        .delete-btn {
+            /* Now styled as a clean icon link */
+            margin-left: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px; /* Slightly larger icon */
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        
+        .delete-btn:hover {
+            opacity: 1;
+            color: red; /* Highlight red on hover */
+        }
+
+        /* --- Back Button Styles --- */
+        .back-btn {
+            display: block;
+            width: 200px;
+            margin-bottom: 30px auto 0; /* Added spacing */
+            padding: 12px;
+            text-align: center;
+            background: #00bcd4; /* Match header color */
+            border-radius: 25px; /* Pill shape */
+            text-decoration: none;
+            color: white; /* White text */
+            font-weight: bold;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .back-btn:hover {
+            background-color: #008ba3; /* Darker hover state */
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    
+    <h2>Your Saved Birthdays</h2> 
+    <table>
+        <thead> 
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody> {% for row in data %}
+            <tr>
+                <td>{{ row[1] }}</td> 
+                <td>{{ row[2] }}      
+                    <a href="/delete_birthday/{{ row[0] }}" class="delete-btn" onclick="return confirm('Are you sure you want to delete this birthday?')" title="Delete Birthday">
+                        ❌
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/index" class="back-btn">Go Back</a>
+
+</body>
+</html>
